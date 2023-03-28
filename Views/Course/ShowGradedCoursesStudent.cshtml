@@ -1,0 +1,31 @@
+﻿@{
+    List<Course> courses = ViewData["Courses"] as List<Course>;
+    List<Student> students = ViewData["Students"] as List<Student>;
+    List<CourseHasStudent> courseHasStudents = ViewData["CourseHasStudents"] as List<CourseHasStudent>;
+}
+
+<h2 class="m-2">  Bαθμολογία ανά μάθημα</h2>
+
+<table class="table table-bordered mt-3">
+    @foreach(var c in courses)
+    {
+        <tr>
+            <th>@c.CourseTitle</th><th>Βαθμός</th>
+        </tr>
+        
+        @foreach(var ch in courseHasStudents)
+        {
+            @if (ch.CourseIdCourse == c.IdCourse)
+            {
+                @foreach (var s in students)
+                {
+                    @if(s.RegistrationNumber == ch.StudentsRegistrationNumber)
+                    {
+                        <tr><td class="bg-light">@s.Name @s.Surname</td> <td class ="bg-light">@ch.GradeCourseStudent</td></tr>
+                    }
+                }
+
+         }
+        }
+    }
+</table>

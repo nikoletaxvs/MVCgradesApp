@@ -1,0 +1,27 @@
+﻿@model Course;
+<form method="post">
+    <div class="order p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Καταχώρηση Νέου Μαθήματος</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="CourseTitle">Course Title </label>
+            <input asp-for="CourseTitle" class="form-control" />
+            <span asp-validation-for="CourseTitle" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="CourseSemester ">Course Semester </label>
+            <input asp-for="CourseSemester " class="form-control" />
+            <span asp-validation-for="CourseSemester " class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="ProfessorsAfm ">Professor's Afm </label>
+            <input asp-for="ProfessorsAfm " class="form-control" />
+            <span asp-validation-for="ProfessorsAfm " class="text-danger"></span>
+        </div>
+       
+        <button type="submit" class="btn btn-primary" style="width:150px">Add</button>
+    </div>
+</form>

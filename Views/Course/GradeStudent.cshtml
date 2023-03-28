@@ -1,0 +1,28 @@
+﻿@model CourseHasStudent
+<form method="post">
+    <div class="order p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Καταχώρηση Βαθμολογίας</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="CourseIdCourse">Course Id </label>
+            <input asp-for="CourseIdCourse" class="form-control" />
+            <span asp-validation-for="CourseIdCourse" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="StudentsRegistrationNumber ">Students Registration Number</label>
+            <input asp-for="StudentsRegistrationNumber " class="form-control" />
+            <span asp-validation-for="StudentsRegistrationNumber " class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="GradeCourseStudent ">Grade</label>
+            <input asp-for="GradeCourseStudent " class="form-control" />
+            <span asp-validation-for="GradeCourseStudent " class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:150px">Add</button>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary" style="width:150px">Πίσω στην Αρχική</a>
+    </div>
+</form>

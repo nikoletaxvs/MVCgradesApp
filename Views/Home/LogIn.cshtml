@@ -1,0 +1,82 @@
+﻿@{
+    Layout = null;
+    var username = "";
+    var password = "";
+    var role = "";
+    if(TempData["Username"]!=null){ username= TempData["Username"].ToString(); }
+    if(TempData["Password"]!=null){ password= TempData["Password"].ToString(); }
+    if(TempData["Role"]!=null){ role= TempData["Role"].ToString(); }
+    Dictionary<string, string> roles = new Dictionary<String, string>();
+    roles.Add("Student", "Φοιτητής");
+    roles.Add("Professor", "Καθηγητής");
+    roles.Add("Secretary", "Γραμματέας");
+}
+@model User
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Είσοδος στο Βαθμολόγιο</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/Litera.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/GradesApp.styles.css" asp-append-version="true" />
+</head>
+<body class="bg-light">
+    @if (TempData["AlertMessage"] != null)
+    {
+        <div class="alert alert-success">
+            <strong>Συγχαρητήρια!</strong> @TempData["AlertMessage"]
+        </div>
+    }
+    <div class="container mt-4 w-75 shadow-sm p-3 mb-5 bg-body rounded ">
+        <div class="row mx-auto">
+            <div class="col">
+                <img src="/images/loginIllustration.jpg" class="img-fluid" alt="login Illustration">
+
+            </div>
+            <div class="col">
+                
+                <form method="post" class="mt-4 mb-4">
+                    <div class="mb-3">
+                        <label asp-for="Username" class="form-label">Όνομα χρήστη</label>
+                        <input asp-for="Username" class="form-control" id="Username" aria-describedby="Username" value="@username">
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                        <div id="Username" class="form-text" style="font-size:small">Δεν θα μοιραστούμε ποτέ τα προσωπικά σας δεδομένα.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Password" class="form-label">Κωδικός Πρόσβασης</label>
+                        <input asp-for="Password" type="password" class="form-control" value="@password">
+                        <span asp-validation-for="Password" class="text-danger"></span>
+
+                    </div>
+                    <label asp-for="Role" class="form-label">Ρόλος χρήστη</label>
+                    <select asp-for="Role" class="form-select" aria-label="Επέλεξε ρόλο">
+                        @foreach (KeyValuePair<string, string> ele1 in roles)
+                        {
+                            if(ele1.Key == role)
+                            {
+                                <option value="@ele1.Key" selected>@ele1.Value</option>
+                            }else{
+                                <option value="@ele1.Key">@ele1.Value</option>
+                            }
+                        }
+                       
+                    </select>
+                     <span asp-validation-for="Role" class="text-danger"></span>
+                    <button type="submit" class="btn btn-primary mt-4 col-12">Είσοδος</button>
+                </form>
+                <hr />
+                <div class="m-4 text-center">
+                    <div style="font-size:small">Δεν έχεις ακόμα λογαριασμό? Κάνε <a asp-controller="Home" asp-action="SignUp">Εγγραφή</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</footer>
+</html>

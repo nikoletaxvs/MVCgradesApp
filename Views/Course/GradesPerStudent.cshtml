@@ -1,0 +1,60 @@
+﻿@{
+    List<Course> courses = ViewData["Courses"] as List<Course>;
+    List<Student> students = ViewData["Students"] as List<Student>;
+    List<CourseHasStudent> courseHasStudents = ViewData["CourseHasStudents"] as List<CourseHasStudent>;
+    var sum = 0;
+    var counter = 0;
+    var average = "-";
+}
+
+<h2 class="m-2">Συνολική Βαθμολογία Ανά Φοιτητή</h2>
+
+<table class="table table-bordered mt-3">
+    @foreach(var student in students){
+        <tr>
+            <th>@student.Name @student.Surname</th>
+            <th>Βαθμός</th>
+        </tr>
+        @foreach (var chs in courseHasStudents)
+        {
+            if (chs.GradeCourseStudent != null)
+            {
+                if (chs.StudentsRegistrationNumber == student.RegistrationNumber)
+                {
+                    @foreach (var course in courses)
+                    {
+                        if (chs.CourseIdCourse == course.IdCourse)
+                        {
+                             <tr>
+                                        <td class="bg-light">@course.CourseTitle</td>
+                                        <td class="bg-light">@chs.GradeCourseStudent</td>
+                                @{
+                                    sum = sum + (int)chs.GradeCourseStudent;
+                                    counter++;
+                                }
+                             </tr>
+                        }
+                    }
+                }
+            }
+           
+        }
+
+        
+            @if (counter != 0) {
+                average = (sum / counter).ToString();
+                sum = 0;
+                counter = 0;
+
+            }
+        
+    
+        <tr>
+            <td class="bg-light"><strong>Μέσος Όρος</strong></td> 
+            <td class="bg-light"><strong>@average</strong></td>
+        </tr>
+    }
+   
+       
+         
+</table>

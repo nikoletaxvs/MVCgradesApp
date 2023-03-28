@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "ShowGradedCourses";
+    List<Course> courses = ViewData["Courses"] as List<Course>;
+    List<Professor> professors = ViewData["Professors"] as List<Professor>;
+    List<CourseHasStudent> courseHasStudents = ViewData["CourseHasStudents"] as List<CourseHasStudent>;
+}
+
+<h2 class="m-2"> Bαθμολογημένα Μαθήματα</h2>
+
+<table class="table table-bordered table-striped mt-3">
+    @foreach(var m in courses){
+        @foreach (var p in professors)
+        {
+            if (m.ProfessorsAfm == p.Afm)
+            {
+                <tr>
+                    <th>Μάθημα: @m.CourseTitle - Καθηγητής: @p.Name @p.Surname</th>
+                </tr>
+            }
+
+        }
+       
+        @foreach (var ch in courseHasStudents)
+        {
+            if (m.IdCourse == ch.CourseIdCourse)
+            {
+                  if (ch.GradeCourseStudent != null)
+            {
+                    <tr><td>@ch.GradeCourseStudent</td></tr>
+            }    
+            }
+          
+        }
+}
+</table>

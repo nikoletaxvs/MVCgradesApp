@@ -1,0 +1,38 @@
+﻿@model CourseHasStudent
+@{
+
+    ViewData["Title"] = "Assingn To Student";
+    IEnumerable<Student> students = ViewData["Students"] as IEnumerable<Student>;
+    var id = ViewData["Course"];
+
+}
+
+<div class="border p-3 mt-4">
+<form method="post" asp-action="AssignToStudent">
+         
+        <div class="row pd-2">
+            <h2 class="text-primary"> <i class="bi-pencil-fill"></i> Ανάθεση Μαθήματος Σε Φοιτητή</h2>
+            <hr />
+        </div>
+       
+         <div class="mb-3">
+            <label asp-for="CourseIdCourse">Course Id</label>
+            <input asp-for="CourseIdCourse " class="form-control" value="@id" readonly />
+        </div>
+
+      
+        <div class="mb-3">
+            <label asp-for="StudentsRegistrationNumber">Choose Student:</label>
+            <select asp-for="StudentsRegistrationNumber" class="form-select" aria-label="Default select example">
+               
+                @foreach (Student p in students)
+                {
+                    <option value="@p.RegistrationNumber">@p.Name @p.Surname</option>
+                }
+            </select>
+
+        </div>
+        <button type="submit" class="btn btn-primary" width="150px">Καταχώρηση</button>
+
+</form>
+</div>

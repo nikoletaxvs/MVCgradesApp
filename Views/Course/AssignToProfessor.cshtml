@@ -1,0 +1,41 @@
+﻿@model Course
+@{
+
+    ViewData["Title"] = "AssignToProfessor";
+    IEnumerable<Professor> professors = ViewData["Professors"] as IEnumerable<Professor>;
+    IEnumerable<Course> courses = ViewData["Courses"] as IEnumerable<Course>;
+
+}
+
+<div class="border p-3 mt-4">
+<form method="post" asp-action="AssignToProfessor">
+    
+        <div class="row pd-2">
+            <h2 class="text-primary"> <i class="bi-briefcase-fill"></i> Ανάθεση Μαθήματος Σε Καθηγητή</h2>
+            <hr />
+        </div>
+
+        
+    <div class="mb-3">
+        <label asp-for="CourseTitle"></label>
+        <input asp-for="CourseTitle" class="form-control" readonly/>
+        <span asp-validation-for="CourseTitle" class="text-danger"></span>
+   </div>
+   <div class="mb-3">
+        <label asp-for="CourseSemester"></label>
+        <input asp-for="CourseSemester" class="form-control" readonly/>
+        <span asp-validation-for="CourseSemester" class="text-danger"></span>
+   
+    <div class="mb-3">
+            <label asp-for="ProfessorsAfm">Choose Professor:</label>
+            <select asp-for="ProfessorsAfm" class="form-select" aria-label="Default select example">
+            @foreach(Professor p in professors){
+              <option value="@p.Afm">@p.Name @p.Surname</option>
+            }  
+        </select>
+       
+    </div>
+    <button type="submit" class="btn btn-primary" width="150px" >Καταχώρηση</button>
+   
+</form>
+</div>

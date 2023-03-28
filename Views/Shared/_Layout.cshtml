@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GradesApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/Litera.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/GradesApp.styles.css" asp-append-version="true" />
+    <!-- Bootstrap Font Icon CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+</head>
+<body class="mb-4">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Βαθμολόγιο</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Φοιτητές
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a asp-controller="Course" asp-action="ShowGradedCoursesStudent" class="dropdown-item">Βαθμολογία Ανά Μάθημα</a></li>
+                                <li><a asp-controller="Course" asp-action="ShowGradedPerSemester" class="dropdown-item">Bαθμολογία Ανά Εξάμηνο</a></li>
+                                <li><a asp-controller="Course" asp-action="GradesPerStudent" class="dropdown-item">Συνολική Βαθμολογία </a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Καθηγητές
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a asp-controller="Course" asp-action="ShowGradedCourses" class="dropdown-item">Βαθμολογία Ανά Μάθημα</a></li>
+                                <li><a asp-controller="Course" asp-action="GradeStudent" class="dropdown-item">Βαθμολόγησε Φοιτητή</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Γραμματεία
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a asp-controller="User" asp-action="CreateStudent" class="dropdown-item">Καταχώρηση Νέου Φοιτητή</a></li>
+                                <li><a asp-controller="User" asp-action="CreateProfessor" class="dropdown-item">Καταχώρηση Νέου Καθηγητή</a></li>
+                                <li><a asp-controller="User" asp-action="CreateCourse" class="dropdown-item">Καταχώρηση Νέου Μαθήματος</a></li>
+                                 <li><hr class="dropdown-divider"></li>
+                                <li><a asp-controller="Course" asp-action="AllCourses" class="dropdown-item">Προβολή και Επεξεργασία/Ανάθεση Μαθημάτων</a></li>
+                            </ul>
+                        </li> 
+                       
+                       
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- <footer class="border-top footer  mt-2 p-2 fixed-bottom ">
+        <div class="container">
+            &copy; 2023 - Βαθμολόγιο - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer> -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

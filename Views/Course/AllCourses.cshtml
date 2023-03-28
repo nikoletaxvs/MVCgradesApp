@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Course> 
+@{
+    ViewData["Title"] = "AllCourses";
+}
+
+<h2 class="text-primary m-2">Όλα τα Μαθήματα</h2>
+
+<table class="table table-bordered table-striped mt-3" >
+    <thead>
+        <tr>
+            <th>
+                 Id
+            </th>
+            <th>
+                 Τίτλος
+            </th>
+            <th>
+                 Εξάμηνο
+            </th>
+            <th>
+                ΑΦΜ Καθηγητή
+            </th>
+            <th colspan="2">
+                Ανάθεση Μαθήματος
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+            
+        <tr>
+            <td width="10%">
+                @obj.IdCourse
+            </td>
+            <td>
+                @obj.CourseTitle
+            </td>
+            <td>
+                @obj.CourseSemester
+            </td>
+             <td>
+                @obj.ProfessorsAfm
+             </td>
+             <td>
+                 <div class="container">
+                        <div class="row">
+                          <div class="col">
+                                <a asp-controller="Course" asp-action="AssignToProfessor" asp-route-id="@obj.IdCourse" class="btn btn-primary  p-3 ">
+
+                                    <i class="bi-briefcase-fill"></i> Σε Καθηγητή
+
+                                </a>
+                          </div>
+
+
+                        <div class="col">
+                                <a asp-controller="Course" asp-action="AssignToStudent" asp-route-id="@obj.IdCourse" class="btn btn-warning  p-3">
+
+                                    <i class="bi-pencil-fill"></i> Σε Μαθητή
+
+                        </a>
+                        </div>
+                        </div>
+                 </div>
+                  
+             </td>
+        </tr>}
+    </tbody>
+</table>
+
+
+

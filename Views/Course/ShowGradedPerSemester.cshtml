@@ -1,0 +1,45 @@
+﻿@{
+    List<Course> courses = ViewData["Courses"] as List<Course>;
+    List<Student> students = ViewData["Students"] as List<Student>;
+    List<CourseHasStudent> courseHasStudents = ViewData["CourseHasStudents"] as List<CourseHasStudent>;
+    List<String> c_semesters = courses.Select(ob => ob.CourseSemester)
+                                        .Distinct()
+                                        .ToList();
+    c_semesters.Sort();
+}
+
+<h2 class="m-2"> Bαθμολογία ανά Εξάμηνο</h2>
+
+<table class="table table-bordered mt-3">
+    @foreach(var v in c_semesters)
+    {
+        <th>Εξάμηνο: @v</th>
+     
+        @foreach (var c in courses)
+        {
+            if (c.CourseSemester ==v)
+            {
+                <tr>
+                    <td>@c.CourseTitle</td>
+                    <td>Βαθμός</td>
+
+                </tr>
+
+                @foreach (var ch in courseHasStudents)
+                {
+                    @if (ch.CourseIdCourse == c.IdCourse)
+                    {
+                        @foreach (var s in students)
+                        {
+                            @if (s.RegistrationNumber == ch.StudentsRegistrationNumber)
+                            {
+                                <tr><td class="bg-light">@s.Name @s.Surname</td> <td class="bg-light">@ch.GradeCourseStudent</td></tr>
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+</table>

@@ -1,0 +1,37 @@
+﻿@model Professor;
+<form method="post">
+    <div class="order p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Καταχώρηση Νέου Καθηγητή</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="UsersUsername">Username</label>
+            <input asp-for="UsersUsername" class="form-control" />
+            <span asp-validation-for="UsersUsername" class="text-danger"></span>
+        </div>
+      
+        <div class="mb-3">
+            <label asp-for="Afm">Afm</label>
+            <input asp-for="Afm" class="form-control" />
+            <span asp-validation-for="Afm" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Name">Name</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Surname">Surname</label>
+            <input asp-for="Surname" class="form-control" />
+            <span asp-validation-for="Surname" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Department">Department</label>
+            <input asp-for="Department" class="form-control" />
+            <span asp-validation-for="Department" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:150px">Add</button>
+    </div>
+</form>

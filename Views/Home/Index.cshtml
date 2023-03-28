@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    var f = TempData["users_name"];
+}
+<div class="container pt-2">
+    @if (TempData["AlertMessage"] != null)
+    {
+       <div class="alert alert-success">
+            <strong>Συγχαρητήρια!</strong> @TempData["AlertMessage"] 
+       </div>
+    }
+    <div class="row">
+        <div class="col-6">
+            <h2 class="m-4 pt-2"><span class="text-primary">@f</span> Καλώς ήρθες στο βαθμολόγιο! </h2>
+        <div class="row">
+            <div class=" m-4 col-10">
+                   
+                <p>Mια διαδικτυακή εφαρμογή βαθμολογίου για τους φοιτητές ενός πανεπιστημίου.
+                        Η εφαρμογή αυτή έχει υλοποιηθεί με το framework ASP.NET Core 6.0 ,χρησιμοποιώντας την γλώσσα προγραμματισμού C# και αρχιτεκτονική MVC,
+                    στα πλαίσια του μαθήματος <b>Σύγχρονα Θέματα Τεχνολογίας Λογισμικού</b> του Πανεπιστημίου Πειραιώς.</p>
+                    
+                    <a class="btn btn-primary mt-2 col-12" href="https://gunet2.cs.unipi.gr/courses/TMD100/" target="_blank"><i class="bi-link"></i> Μάθε Περισσότερα</a>
+                </div>
+             
+        </div>
+    </div>
+        <div class="col-6">
+        <img src="/images/university-student.jpg" class="img-fluid" alt="university student">
+    </div>
+   </div>
+
+</div>
