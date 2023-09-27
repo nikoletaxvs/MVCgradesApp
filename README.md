@@ -1,9 +1,9 @@
 # MVCgradesApp
-Γενική Περιγραφή
-![image](https://github.com/nikoletaxvs/MVCgradesApp/assets/60019367/bbe08cd9-0e31-4053-b7b4-c85c10c76452)
+<h2>Γενική Περιγραφή</h2>
+![image](https://github.com/nikoletaxvs/MVCgradesApp/assets/60019367/59eb03cc-c4f0-4abe-80a4-52dc4a92c98f)
 
-Πρόκειται για ένα σύστημα βαθμολόγησης μαθητών το οποίο υποστηρίζει λειτουργίες τόσο για μαθητές και καθηγητές όσο και για διαχειριστές.
+<p>Πρόκειται για ένα σύστημα βαθμολόγησης μαθητών το οποίο υποστηρίζει λειτουργίες τόσο για μαθητές και καθηγητές όσο και για διαχειριστές.</p>
 
-Τεχνολογίες
+<h2>Τεχνολογίες</h2>
 
-Η εφαρμογή αυτή έχει φτιαχτεί με το web framework ASP.NET Core 6.0 ,χρησιμοποιώντας την γλώσσα προγραμματισμού C# και το σχεσιακό σύστημα διαχείρησης βάσεων δεδομένων SQL Server 2019. Επιπλέον γίνεται χρήση των πακέτων : Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation, Microsoft.EntityFrameworkCore.SqlServer, Microsoft.EntityFrameworkCore.Tools, Microsoft.Extensions.Configuration και Microsoft.VisualStudio.Web.CodeGeneration.Design.
+<p>Η εφαρμογή αυτή έχει φτιαχτεί με το web framework ASP.NET Core 6.0 ,χρησιμοποιώντας την γλώσσα προγραμματισμού C# και το σχεσιακό σύστημα διαχείρησης βάσεων δεδομένων SQL Server 2019. Επιπλέον γίνεται χρήση των πακέτων : Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation, Microsoft.EntityFrameworkCore.SqlServer, Microsoft.EntityFrameworkCore.Tools, Microsoft.Extensions.Configuration και Microsoft.VisualStudio.Web.CodeGeneration.Design.</p>
